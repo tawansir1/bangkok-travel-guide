@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Route planner | Bangkok Guide</title>
+  <meta name="description" content="Find the fastest train and boat route between two places in Bangkok, with the fare for each ride.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="wordmark">Bangkok Guide</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html#places">Places</a>
+        <a href="index.html#food">Food</a>
+        <a href="index.html#three-days">Three days</a>
+        <a href="index.html#tips">Tips</a>
+        <a href="route.html" aria-current="page">Route planner</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="section-intro" style="margin-top:2.5rem">
+      <h1>Route planner</h1>
+      <p>Type a place or a station. You’ll get the fastest route by BTS, MRT, Airport Rail Link or river boat, with the fare for each ride.</p>
+    </div>
+
+    <form class="route-form" action="route.html" method="get">
+      <div>
+        <label for="from">From</label>
+        <input type="text" id="from" name="from" list="place-options" placeholder="e.g. Suvarnabhumi Airport" autocomplete="off" required>
+      </div>
+      <button type="button" class="button-plain planner-swap" aria-label="Swap from and to">Swap</button>
+      <div>
+        <label for="to">To</label>
+        <input type="text" id="to" name="to" list="place-options" placeholder="e.g. Grand Palace" autocomplete="off" required>
+      </div>
+      <button type="submit" class="button">Find route</button>
+    </form>
+    <datalist id="place-options"></datalist>
+
+    <!-- js/route-page.js puts the result here -->
+    <div id="result" aria-live="polite"></div>
+
+    <section class="section" id="fares" style="padding-top:1rem">
+      <h2>How the fares work</h2>
+      <p class="muted" style="max-width:40rem">Each operator charges separately, so changing from BTS to MRT means paying twice. Changing between the two BTS lines at Siam does not.</p>
+      <div class="table-scroll">
+        <table class="fare-table">
+          <thead>
+            <tr><th>Line</th><th>Fare</th><th>How it is charged</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>BTS Skytrain</td><td>17–47 THB</td><td>By stations in the city section. Extensions are 17–45 THB extra, capped at 65 THB per trip.</td></tr>
+            <tr><td>MRT Blue Line</td><td>17–44 THB</td><td>By stations, new table from 3 July 2026.</td></tr>
+            <tr><td>Airport Rail Link</td><td>15–45 THB</td><td>By stations. Airport to Phaya Thai is 45 THB.</td></tr>
+            <tr><td>Gold Line</td><td>17 THB</td><td>Flat fare. Connects Krung Thon Buri to ICONSIAM.</td></tr>
+            <tr><td>Express boat</td><td>19 THB</td><td>Orange flag, flat fare. Pay the conductor on board.</td></tr>
+            <tr><td>River ferry</td><td>about 4 THB</td><td>Cross-river boats, such as Tha Tien to Wat Arun.</td></tr>
+            <tr><td>Taxi</td><td>35 THB start</td><td>Then 6.50 THB per km, plus 3 THB per minute in slow traffic.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted">Adult fares, checked November 2026. Prices change often, so check at the station.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Made by Tawan with HTML, CSS and JavaScript.</p>
+      <p>Routes use Dijkstra’s algorithm over the BTS, MRT, ARL, Gold Line and river boat network.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/route-page.js"></script>
+</body>
+</html>

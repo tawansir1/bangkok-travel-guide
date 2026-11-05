@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place | Bangkok Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="wordmark">Bangkok Guide</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html#places" aria-current="page">Places</a>
+        <a href="index.html#food">Food</a>
+        <a href="index.html#three-days">Three days</a>
+        <a href="index.html#tips">Tips</a>
+        <a href="route.html">Route planner</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- One page for every place: js/place.js reads ?id=... from the URL -->
+  <main id="main" class="wrap">
+    <a class="back" href="index.html#places">Back to all places</a>
+    <div id="place">
+      <noscript><p>Turn on JavaScript to see this place.</p></noscript>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Made by Tawan with HTML, CSS and JavaScript.</p>
+      <p>Opening times and prices change. Check before you go.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/place.js"></script>
+</body>
+</html>

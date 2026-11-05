@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangkok Guide</title>
+  <meta name="description" content="Bangkok for first-timers: eight places worth your time, what to eat, a three-day plan and a route planner with real train and boat fares.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="wordmark">Bangkok Guide</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#places">Places</a>
+        <a href="#food">Food</a>
+        <a href="#three-days">Three days</a>
+        <a href="#tips">Tips</a>
+        <a href="route.html">Route planner</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero: the headline plus the route planner, so the tool is the first thing you can use -->
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <h1>Bangkok for first&#8209;timers</h1>
+          <p>Eight places worth your time, what to eat when you get there, and how to reach all of it by train and boat instead of sitting in traffic.</p>
+        </div>
+
+        <!-- Works without JavaScript too: it just opens route.html?from=...&to=... -->
+        <form class="planner" action="route.html" method="get">
+          <h2>Where are you going?</h2>
+          <div>
+            <label for="from">From</label>
+            <input type="text" id="from" name="from" list="place-options" placeholder="e.g. Asok or Siam Paragon" autocomplete="off" required>
+          </div>
+          <button type="button" class="button-plain planner-swap" aria-label="Swap from and to">Swap</button>
+          <div>
+            <label for="to">To</label>
+            <input type="text" id="to" name="to" list="place-options" placeholder="e.g. Wat Arun" autocomplete="off" required>
+          </div>
+          <button type="submit" class="button">Find route and fare</button>
+        </form>
+        <datalist id="place-options"></datalist>
+      </div>
+    </section>
+
+    <!-- Places: drawn by js/home.js from data.js -->
+    <section class="section section-ground" id="places">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2>Places worth your time</h2>
+          <p>Each one shows the nearest station, coloured by its line. Open a place for opening times, tickets and tips.</p>
+        </div>
+        <ol class="stops" id="stops">
+          <noscript><li>Turn on JavaScript to see the list of places.</li></noscript>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Food -->
+    <section class="section" id="food">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2>What to eat</h2>
+          <p>Street food prices. Eat where the locals queue.</p>
+        </div>
+        <ul class="menu">
+          <li>
+            <div class="menu-line"><span>Pad Thai <span class="thai">ผัดไทย</span></span><span class="dots"></span><span class="price">60–100 THB</span></div>
+            <p>Stir-fried rice noodles with egg, tofu, shrimp and peanuts. Squeeze the lime over it.</p>
+          </li>
+          <li>
+            <div class="menu-line"><span>Khao Man Gai <span class="thai">ข้าวมันไก่</span></span><span class="dots"></span><span class="price">50–80 THB</span></div>
+            <p>Poached chicken on rice cooked in chicken stock, with a ginger and soybean sauce.</p>
+          </li>
+          <li>
+            <div class="menu-line"><span>Som Tam <span class="thai">ส้มตำ</span></span><span class="dots"></span><span class="price">50–80 THB</span></div>
+            <p>Green papaya salad: sour, sweet, salty and hot. Say “phet nit noi” for a little spice.</p>
+          </li>
+          <li>
+            <div class="menu-line"><span>Mango Sticky Rice <span class="thai">ข้าวเหนียวมะม่วง</span></span><span class="dots"></span><span class="price">80–150 THB</span></div>
+            <p>Ripe mango with sticky rice and salted coconut cream. Best from April to June.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Itinerary -->
+    <section class="section section-ground" id="three-days">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2>Three days, no taxis needed</h2>
+          <p>A relaxed plan. Every stop is reachable by train, boat or a short walk.</p>
+        </div>
+        <div class="days">
+          <div class="day">
+            <h3>Day 1: the old town</h3>
+            <ol>
+              <li><time>08:30</time><div><strong><a href="place.html?id=grand-palace">Grand Palace</a></strong><p>Arrive at opening. Cover shoulders and knees.</p></div></li>
+              <li><time>11:30</time><div><strong><a href="place.html?id=wat-pho">Wat Pho</a></strong><p>The Reclining Buddha, then a massage.</p></div></li>
+              <li><time>14:00</time><div><strong><a href="place.html?id=wat-arun">Wat Arun</a></strong><p>Ferry across from Tha Tien pier.</p></div></li>
+              <li><time>17:30</time><div><strong>Dinner by the river</strong><p>Watch Wat Arun light up.</p></div></li>
+            </ol>
+          </div>
+          <div class="day">
+            <h3>Day 2: river and Chinatown</h3>
+            <ol>
+              <li><time>09:00</time><div><strong><a href="place.html?id=chao-phraya">Express boat</a></strong><p>Orange flag from Sathorn Pier.</p></div></li>
+              <li><time>12:00</time><div><strong><a href="place.html?id=iconsiam">ICONSIAM</a></strong><p>Lunch at the indoor floating market.</p></div></li>
+              <li><time>16:00</time><div><strong>Rest</strong><p>Skip the worst of the heat.</p></div></li>
+              <li><time>19:00</time><div><strong><a href="place.html?id=yaowarat">Yaowarat</a></strong><p>Food walk, one dish per stall.</p></div></li>
+            </ol>
+          </div>
+          <div class="day">
+            <h3>Day 3: markets and parks</h3>
+            <ol>
+              <li><time>09:00</time><div><strong><a href="place.html?id=chatuchak">Chatuchak</a></strong><p>Weekends only. Go before it gets hot.</p></div></li>
+              <li><time>13:00</time><div><strong>Siam</strong><p>Malls, cafés and air conditioning.</p></div></li>
+              <li><time>17:00</time><div><strong><a href="place.html?id=lumphini">Lumphini Park</a></strong><p>Joggers and monitor lizards.</p></div></li>
+              <li><time>19:30</time><div><strong>A rooftop</strong><p>End with the skyline.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips -->
+    <section class="section tips" id="tips">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2>Good to know</h2>
+        </div>
+        <details>
+          <summary>What should I wear to temples?</summary>
+          <p>Cover your shoulders and knees, and take your shoes off before you enter a temple hall.</p>
+        </details>
+        <details>
+          <summary>When is the best time to visit?</summary>
+          <p>November to February is cool and dry. March to May is very hot, and June to October brings afternoon rain.</p>
+        </details>
+        <details>
+          <summary>Which card do I need for the train?</summary>
+          <p>BTS uses its own Rabbit card or single tickets. MRT takes contactless bank cards or tokens. They are separate systems, so you pay again when you change between them.</p>
+        </details>
+        <details>
+          <summary>Useful Thai phrases</summary>
+          <p><strong>Sawasdee krub / ka</strong> hello. <strong>Khob khun krub / ka</strong> thank you. <strong>Tao rai?</strong> how much? <strong>Mai phet</strong> not spicy. Men end with “krub”, women with “ka”.</p>
+        </details>
+        <details>
+          <summary>Local etiquette</summary>
+          <p>Respect the monarchy, don’t touch people’s heads, and don’t point your feet at people or Buddha images.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Made by Tawan with HTML, CSS and JavaScript.</p>
+      <p>Fares checked November 2026. Photos: add photographer credits here.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
