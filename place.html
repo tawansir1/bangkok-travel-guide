@@ -1,66 +1,48 @@
-/* place.js — fills place.html using ?id=... from the URL */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place | Bangkok Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
-document.addEventListener('DOMContentLoaded', () => {
-  const box = document.getElementById('place');
-  const id = new URLSearchParams(location.search).get('id');
-  const index = PLACES.findIndex(p => p.id === id);
-
-  if (index === -1) {
-    box.innerHTML = `
-      <h1>Place not found</h1>
-      <p>This link doesn’t match any place in the guide. <a href="index.html#places">See all places</a>.</p>`;
-    return;
-  }
-
-  const place = PLACES[index];
-  const color = lineColor(place.station);
-  const prev = PLACES[(index - 1 + PLACES.length) % PLACES.length];
-  const next = PLACES[(index + 1) % PLACES.length];
-  const walkText = place.walk ? `${place.walk} min walk from` : 'At';
-
-  document.title = `${place.name} | Bangkok Guide`;
-
-  box.innerHTML = `
-    <div class="place-head">
-      <h1>${esc(place.name)}</h1>
-      <p class="thai">${esc(place.thai)}</p>
-      <p>${walkText} ${stationBadge(place.station)}</p>
-      <div class="place-actions">
-        <a class="button" href="route.html?to=${encodeURIComponent(place.name)}">Plan a route here</a>
-      </div>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="wordmark">Bangkok Guide</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html#places" aria-current="page">Places</a>
+        <a href="index.html#food">Food</a>
+        <a href="index.html#three-days">Three days</a>
+        <a href="index.html#tips">Tips</a>
+        <a href="route.html">Route planner</a>
+      </nav>
     </div>
+  </header>
 
-    <figure class="place-figure">
-      <div class="place-photo" style="--line:${color}">
-        <img src="${photoUrl(place, 1600)}" alt="${esc(place.name)}">
-      </div>
-      ${photoPage(place) ? `<figcaption>Photo from <a href="${photoPage(place)}" target="_blank" rel="noopener">Wikimedia Commons</a>. Open the link for the photographer and license.</figcaption>` : ''}
-    </figure>
-
-    <div class="place-body">
-      <div class="text">
-        ${place.body.map(p => `<p>${esc(p)}</p>`).join('')}
-        <h2>Tips</h2>
-        <ul class="tip-list">${place.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
-      </div>
-      <dl class="facts">
-        ${place.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}
-      </dl>
+  <!-- One page for every place: js/place.js reads ?id=... from the URL -->
+  <main id="main" class="wrap">
+    <a class="back" href="index.html#places">Back to all places</a>
+    <div id="place">
+      <noscript><p>Turn on JavaScript to see this place.</p></noscript>
     </div>
+  </main>
 
-    <nav class="other-places" aria-label="Other places">
-      <a href="place.html?id=${prev.id}">Previous: ${esc(prev.name)}</a>
-      <a href="place.html?id=${next.id}">Next: ${esc(next.name)}</a>
-    </nav>`;
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Made by Tawan with HTML, CSS and JavaScript.</p>
+      <p>Opening times and prices change. Check before you go.</p>
+    </div>
+  </footer>
 
-  // No photo yet? Show the Thai name on the line colour instead.
-  const img = box.querySelector('.place-photo img');
-  const showFallback = () => {
-    const sign = document.createElement('span');
-    sign.className = 'fallback';
-    sign.textContent = place.thai;
-    img.replaceWith(sign);
-  };
-  img.addEventListener('error', showFallback);
-  if (img.complete && img.naturalWidth === 0) showFallback();
-});
+  <script src="js/data.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/place.js"></script>
+</body>
+</html>
