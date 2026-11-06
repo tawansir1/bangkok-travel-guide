@@ -30,9 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     </div>
 
-    <div class="place-photo" style="--line:${color}">
-      <img src="${place.image}" alt="${esc(place.name)}">
-    </div>
+    <figure class="place-figure">
+      <div class="place-photo" style="--line:${color}">
+        <img src="${photoUrl(place, 1600)}" alt="${esc(place.name)}">
+      </div>
+      ${photoPage(place) ? `<figcaption>Photo from <a href="${photoPage(place)}" target="_blank" rel="noopener">Wikimedia Commons</a>. Open the link for the photographer and license.</figcaption>` : ''}
+    </figure>
 
     <div class="place-body">
       <div class="text">
