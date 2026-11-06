@@ -4,7 +4,7 @@ A travel guide to Bangkok for first-time visitors, with a route planner that fin
 
 **Live demo:** [https://tawansir1.github.io/bangkok-travel-guide/
 ](http://127.0.0.1:5500/index.html)
-![Screenshot](images/screenshot.png)
+
 
 ## Features
 - **Route planner.** Type any place or station (English or Thai). It finds the fastest route across BTS, MRT, Airport Rail Link, Gold Line and the Chao Phraya boats, shows each ride with its fare, and compares the cost with a metered taxi.
