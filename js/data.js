@@ -133,6 +133,21 @@ const TAXI = {
   airportSurcharge: 50
 };
 
+/* ---------- Photos ----------
+   Photos come from Wikimedia Commons (free to use with credit).
+   "photo" is the file name on Commons. To use your own photo
+   instead, put it next to index.html and write e.g.
+   photo: 'wat-arun.jpg' (a name without spaces counts as local). */
+function photoUrl(place, width) {
+  if (!/\s/.test(place.photo)) return place.photo;   // your own file
+  return 'https://commons.wikimedia.org/wiki/Special:FilePath/' +
+    encodeURIComponent(place.photo) + '?width=' + width;
+}
+function photoPage(place) {
+  if (!/\s/.test(place.photo)) return null;
+  return 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(place.photo.replace(/ /g, '_'));
+}
+
 /* ---------- Places ----------
    station: the node the route planner uses.
    walk: minutes from that station to the place. */
@@ -143,7 +158,7 @@ const PLACES = [
     thai: 'พระบรมมหาราชวัง และวัดพระแก้ว',
     type: 'Temple',
     station: 'BL31', walk: 10,
-    image: 'images/wat-phra-kaew.jpg',
+    photo: 'Wat Phra Kaew, Grand Palace, Bangkok, Thailand.jpg',
     summary: 'Home of the Emerald Buddha and the former royal residence.',
     body: [
       'The palace was built in 1782 when Bangkok became the capital. Inside the same walls is Wat Phra Kaew, the most important temple in Thailand, which holds a small Buddha carved from green jade.',
@@ -166,7 +181,7 @@ const PLACES = [
     thai: 'วัดโพธิ์',
     type: 'Temple',
     station: 'BL31', walk: 5,
-    image: 'images/wat-pho.jpg',
+    photo: 'Bangkok Wat Pho reclining Buddha.jpg',
     summary: 'The 46-metre Reclining Buddha and Thailand’s first public school.',
     body: [
       'Wat Pho is older than Bangkok itself. Its best-known resident is the Reclining Buddha, covered in gold leaf, with mother-of-pearl patterns on the soles of the feet.',
@@ -189,7 +204,7 @@ const PLACES = [
     thai: 'วัดอรุณราชวราราม',
     type: 'Temple',
     station: 'WATARUN', walk: 2,
-    image: 'images/wat-arun.jpg',
+    photo: 'Wat Arun from Chao Phraya River.jpg',
     summary: 'The Temple of Dawn, covered in pieces of Chinese porcelain.',
     body: [
       'The central tower is about 80 metres tall and decorated with broken porcelain that was used as ballast on Chinese trading ships.',
@@ -212,7 +227,7 @@ const PLACES = [
     thai: 'เยาวราช',
     type: 'Food',
     station: 'BL29', walk: 5,
-    image: 'images/yaowarat.jpg',
+    photo: 'Yaowarat at night (32455695783).jpg',
     summary: 'Neon signs and a street that becomes one long food market at night.',
     body: [
       'Yaowarat Road has been the centre of Bangkok’s Chinese community for more than 200 years. Gold shops and herbal medicine stores fill the day; after sunset the pavements fill with food stalls.',
@@ -235,7 +250,7 @@ const PLACES = [
     thai: 'ตลาดนัดจตุจักร',
     type: 'Market',
     station: 'BL13', walk: 4,
-    image: 'images/chatuchak.jpg',
+    photo: 'Chatuchak Weekend Market Soi.jpg',
     summary: 'More than 10,000 stalls of clothes, plants, art and snacks.',
     body: [
       'Chatuchak is one of the largest weekend markets in the world. It is split into 27 numbered sections, from vintage clothes to pets to home decor.',
@@ -258,7 +273,7 @@ const PLACES = [
     thai: 'ไอคอนสยาม',
     type: 'Modern',
     station: 'G2', walk: 3,
-    image: 'images/iconsiam.jpg',
+    photo: 'Iconsiam at Night.jpg',
     summary: 'A riverside mall with an indoor floating market on the ground floor.',
     body: [
       'ICONSIAM opened in 2018 on the west bank of the Chao Phraya. Its ground floor, SookSiam, recreates a floating market with food and crafts from every region of Thailand.',
@@ -281,7 +296,7 @@ const PLACES = [
     thai: 'แม่น้ำเจ้าพระยา',
     type: 'River',
     station: 'P-CEN', walk: 0,
-    image: 'images/chao-phraya.jpg',
+    photo: 'Chao Phraya Express Boat Orange Flag 2.jpg',
     summary: 'The cheapest sightseeing tour in Bangkok is the public express boat.',
     body: [
       'The river was Bangkok’s main road long before the city had cars. Temples, palaces and old warehouses still face the water.',
@@ -304,7 +319,7 @@ const PLACES = [
     thai: 'สวนลุมพินี',
     type: 'Park',
     station: 'BL25', walk: 2,
-    image: 'images/lumphini.jpg',
+    photo: 'Lumphini Park.jpg',
     summary: 'Bangkok’s central park, with lakes, joggers and large monitor lizards.',
     body: [
       'Lumphini is the green middle of the business district. Early morning and evening are when locals come to run, dance and do tai chi.',
