@@ -172,7 +172,7 @@ input[type='text'] {
 .menu { list-style: none; padding: 0; margin: 0; max-width: 44rem; }
 .menu li { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
 .menu-line { display: flex; align-items: baseline; gap: 0.5rem; font-weight: 600; font-size: 1.15rem; }
-.menu-line .dots { flex: 1; border-bottom: 2px dotted var(--muted); transform: translateY(-0.3rem); min-width: 1rem; }
+.menu-line .dots { flex: 1; min-width: 1rem; }
 .menu-line .price { white-space: nowrap; }
 .menu p { margin: 0.25rem 0 0; color: var(--muted); max-width: 34rem; }
 
