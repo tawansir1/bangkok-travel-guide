@@ -2,8 +2,8 @@
 
 A travel guide to Bangkok for first-time visitors, with a route planner that finds the fastest train and boat route between two places and adds up the real fares.
 
-**Live demo:** [https://tawansir1.github.io/bangkok-travel-guide/
-](http://127.0.0.1:5500/index.html)
+**Live demo:** [[https://tawansir1.github.io/bangkok-travel-guide/
+](http://127.0.0.1:5500/index.html)](https://tawansir1.github.io/bangkok-travel-guide/)
 
 
 ## Features
