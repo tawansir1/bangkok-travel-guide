@@ -50,4 +50,4 @@ Add photos to `images/` with these names. Until a photo exists, the page shows t
 HTML, CSS, JavaScript (no libraries), IBM Plex Sans Thai.
 
 ## Author
-Tawan — [GitHub](https://github.com/YOUR-USERNAME)
+Sirinut Gerdsomchuea(Tawan) — [GitHub](https://github.com/tawansir1)
